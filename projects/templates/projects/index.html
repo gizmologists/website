@@ -1,0 +1,22 @@
+<html>
+  <head>
+    {% load static %}
+    {% load sass_tags %}
+    <link rel="stylesheet" href="{% sass_src 'sass/projects/projects.scss' %}">
+  </head>
+  <body>
+    <nav id="navlinks">
+      <ul id="navlinks-left">
+        <li> <a href='/'>Home</a> </li>
+        <li> <a href='#'>About Us</a> </li>
+      </ul>
+      <ul id="navlinks-right">
+        <li> <a href='#'>Archive</a> </li>
+        <li> <a href='/projects'>Current Projects</a> </li>
+      </ul>
+    </nav>
+    {% for project in projects %}
+      <p> {{ project }}</p>
+    {% endfor %}
+  </body>
+</html>

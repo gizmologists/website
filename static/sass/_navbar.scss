@@ -1,0 +1,67 @@
+// navbar
+#navlinks {
+  background:#232D4B;
+  grid-area: nav;
+  padding: 15px 50px 10px 50px;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  flex: 0 0 100%;
+  flex-wrap: wrap;
+}
+
+#navlinks-left, #navlinks-right {
+  display: flex;
+}
+
+
+#navlinks-left li, #navlinks-right li {
+  list-style: none;
+  
+  // Make URL that slides left to right on hover
+  a {
+      color: #e0e0e0;
+      margin-right: 30px;  
+      &:hover {
+          color: #c0c0c0;
+      }
+    @media screen and (max-width: 1200px) {
+      font-size: 1.5em;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    @media screen and (max-width: 768px) {
+      font-size: 1.7em;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    display: inline-block;
+
+    @media screen and (min-width: 1020px) {
+
+      text-decoration: none;
+      &:after {
+        content: '';
+        display: block;
+        height: 2px;
+        width: 0;
+        background: transparent;
+        transition: width .5s ease, background-color .5s ease;
+      }
+
+      &:hover:after {
+        width: 100%;
+        background: #E57200;
+      }
+    }
+  }
+}
+
+
+
+
