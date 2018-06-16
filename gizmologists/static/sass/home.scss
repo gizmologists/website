@@ -1,0 +1,33 @@
+@import "sass/application";
+
+.content {
+  display: grid;
+  grid-template-areas:
+  'title title gears'
+  'slideshow slideshow gears'
+  'slideshow slideshow description';
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.title {
+  grid-area: title;
+  background: green;
+}
+
+#slideshow {
+  grid-area: slideshow;
+  background: red;
+  img {
+    width: 50%;
+  }
+}
+
+#gears {
+  grid-area: gears;
+  background: yellow;
+}
+
+#description {
+  grid-area: description;
+  background: purple;
+}

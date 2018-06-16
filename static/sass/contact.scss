@@ -1,0 +1,41 @@
+@import "sass/application";
+
+.content {
+  display: grid;
+  grid-template-areas:
+  'title'
+  'error'
+  'form-wrapper';
+}
+
+.title {
+  grid-area: title;
+  background: green;
+}
+
+.form-wrapper {
+  grid-area: form-wrapper;
+}
+
+.message {
+  background: red;
+
+}
+
+#slideshow {
+  grid-area: slideshow;
+  background: red;
+  img {
+    width: 50%;
+  }
+}
+
+#gears {
+  grid-area: gears;
+  background: yellow;
+}
+
+#description {
+  grid-area: description;
+  background: purple;
+}

@@ -1,4 +1,30 @@
-html, body {
-  margin: 0;
-  padding: 0;
+@import "sass/navbar";
+@import "sass/footer";
+
+body, html {
+  margin:0;
+  padding:0;
+  border:none;
+}
+
+body {
+  display: grid;
+  grid-template-areas:
+    '. nav .'
+    '. content .'
+    '. footer .';
+  grid-gap: 10px;
+  grid-template-columns: 1fr 10fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  height: 100%
+}
+
+.content {
+  grid-area: content;
+  margin: 25px 0px;
+  #title {
+    border-bottom: 2px solid #d0d0d0;
+    margin: 0;
+    padding: 0;
+  }
 }

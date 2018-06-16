@@ -1,0 +1,19 @@
+$navbar-width: 1450px;
+
+footer {
+  grid-area: footer;
+  width: 100%;
+  height: auto;
+  border-top: 1px dotted black;
+}
+
+#footer-links {
+  padding: 15px 50px 10px 50px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex: 0 0 100%;
+  flex-wrap: wrap;
+  list-style: none;
+  max-width: $navbar-width;
+}

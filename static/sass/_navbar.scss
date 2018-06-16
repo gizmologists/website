@@ -1,67 +1,64 @@
+$navbar-width: 1450px;
+$navbar-height: 50px;
+$rad: 0.3cm;
+
 // navbar
-#navlinks {
-  background:#232D4B;
+nav {
   grid-area: nav;
+  border-bottom-left-radius: $rad;
+  border-bottom-right-radius: $rad;
+  background:#232D4B;
+  width: 100%;
+  height: $navbar-height;
+  top: 0;
+}
+
+#navlinks {
   padding: 15px 50px 10px 50px;
-  margin: 0;
+  margin: auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
   flex: 0 0 100%;
   flex-wrap: wrap;
-}
-
-#navlinks-left, #navlinks-right {
-  display: flex;
-}
-
-
-#navlinks-left li, #navlinks-right li {
   list-style: none;
-  
+  max-width: $navbar-width;
+}
+
+.underlineable {
+  margin-right: 30px;  
+  padding: 0px 15px;
+  //background-color: #E57200;
+  //border-radius: 1cm;
   // Make URL that slides left to right on hover
   a {
+      padding: 0;
+      margin: 0;
       color: #e0e0e0;
-      margin-right: 30px;  
       &:hover {
           color: #c0c0c0;
       }
-    @media screen and (max-width: 1200px) {
-      font-size: 1.5em;
-      text-decoration: none;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-    @media screen and (max-width: 768px) {
-      font-size: 1.7em;
-      text-decoration: none;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
 
     display: inline-block;
 
-    @media screen and (min-width: 1020px) {
 
-      text-decoration: none;
-      &:after {
-        content: '';
-        display: block;
-        height: 2px;
-        width: 0;
-        background: transparent;
-        transition: width .5s ease, background-color .5s ease;
-      }
+    text-decoration: none;
+    &:after {
+      content: '';
+      display: block;
+      height: 2px;
+      width: 0;
+      background: transparent;
+      transition: width .5s ease, background-color .5s ease;
+    }
 
-      &:hover:after {
-        width: 100%;
-        background: #E57200;
-      }
+    &:hover:after {
+      width: 100%;
+      background: #E57200;
     }
   }
 }
 
-
-
-
+#logo {
+  width: 75px;
+  margin-right: 50px;
+}

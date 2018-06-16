@@ -5,18 +5,15 @@
     <link rel="stylesheet" href="{% sass_src 'sass/projects/projects.scss' %}">
   </head>
   <body>
-    <nav id="navlinks">
-      <ul id="navlinks-left">
-        <li> <a href='/'>Home</a> </li>
-        <li> <a href='#'>About Us</a> </li>
+    {% include 'components/navbar.html' %}
+    <div class="content">
+      <h1 class="title">Projects</h1>
+      <ul>
+      {% for project in projects %}
+        <li> <a href="/projects/{{ project.slug }}/">{{ project }}</a></li>
+      {% endfor %}
       </ul>
-      <ul id="navlinks-right">
-        <li> <a href='#'>Archive</a> </li>
-        <li> <a href='/projects'>Current Projects</a> </li>
-      </ul>
-    </nav>
-    {% for project in projects %}
-      <p> {{ project }}</p>
-    {% endfor %}
+    </div>
+    {% include 'components/footer.html' %}
   </body>
 </html>

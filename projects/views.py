@@ -4,4 +4,14 @@ from django.template import loader
 from .models import Project
 
 def index(request):
-    return render(request, 'projects/index.html', {'projects': Project.objects.all()})
+    projects = Project.objects.filter(end_date__isnull=True)
+    return render(request, 'projects/index.html', {'projects': projects })
+
+def archive(request):
+    # Only get projects who have a non-null end date
+    projects = Project.objects.filter(end_date__isnull=False)
+    return render(request, 'projects/archive.html', {'projects': projects})
+
+def show(request, slug):
+    return render(request, 'projects/show.html', {'project': Project.objects.get(slug=slug)})
+
