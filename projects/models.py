@@ -14,6 +14,9 @@ class Person(models.Model):
     # Summary possible for each person - might as well?
     summary = models.TextField(null=True, blank=True)
 
+    need_added_to_email = models.BooleanField(default=False)
+    need_removed_from_email = models.BooleanField(default=False)
+
     def __str__(self):
         return self.first_name + ' ' + self.last_name
 

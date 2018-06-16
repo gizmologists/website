@@ -1,1 +1,2 @@
 Django==2.0.1
+django_ckeditor==5.5.0
