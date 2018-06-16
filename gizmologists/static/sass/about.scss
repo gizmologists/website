@@ -3,31 +3,15 @@
 .content {
   display: grid;
   grid-template-areas:
-  'title title gears'
-  'slideshow slideshow gears'
-  'slideshow slideshow description';
-  grid-template-columns: 1fr 1fr 1fr;
+  'title'
+  'wrapper';
 }
 
 .title {
   grid-area: title;
-  background: green;
 }
 
-#slideshow {
-  grid-area: slideshow;
-  background: red;
-  img {
-    width: 50%;
-  }
+.content-wrapper {
+  grid-area: wrapper;
 }
 
-#gears {
-  grid-area: gears;
-  background: yellow;
-}
-
-#description {
-  grid-area: description;
-  background: purple;
-}

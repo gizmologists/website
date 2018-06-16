@@ -4,38 +4,23 @@
   display: grid;
   grid-template-areas:
   'title'
-  'error'
-  'form-wrapper';
+  'message'
+  'wrapper';
+  grid-gap: 0;
 }
 
 .title {
   grid-area: title;
-  background: green;
+  margin: 0px;
+  padding: 0px;
 }
 
-.form-wrapper {
-  grid-area: form-wrapper;
+.content-wrapper {
+  grid-area: wrapper;
 }
+
 
 .message {
   background: red;
-
-}
-
-#slideshow {
-  grid-area: slideshow;
-  background: red;
-  img {
-    width: 50%;
-  }
-}
-
-#gears {
-  grid-area: gears;
-  background: yellow;
-}
-
-#description {
-  grid-area: description;
-  background: purple;
+  grid-area: message;
 }
