@@ -8,11 +8,38 @@ class Person(models.Model):
     last_name = models.CharField(max_length=50)
     # An id, much like a user id, used as primary key for searches - used because no users needed
     # This is meant to be computing ID most likely
-    id = models.CharField(max_length=50, primary_key=True, unique=True)
+    id = models.CharField(
+            max_length=50, 
+            primary_key=True, 
+            unique=True
+    )
     # email will likely be based off of computing ID - but possible to change 
     email = models.EmailField(max_length=254)
-    # Summary possible for each person - might as well?
-    summary = models.TextField(null=True, blank=True)
+    # Graduation year is just an integer - handling is done in the form
+    graduation_year = models.IntegerField(null=True, blank=True)
+
+    # Yeah could be BA but doesn't really matter what it's called
+    DEGREES = (
+            ("BS", "Bachelor's"),
+            ("MS", "Master's"),
+            ("PHD", "Doctorate"),
+            ("O", "Other")
+    )
+    
+    degree_program = models.CharField(
+            max_length=3, 
+            choices=DEGREES, 
+            default="BS",
+            null=True, 
+            blank=True
+    )
+
+    major = models.CharField(
+            max_length=50, 
+            default="Undecided",
+            null=True,
+            blank=True
+    )
 
     need_added_to_email = models.BooleanField(default=False)
     need_removed_from_email = models.BooleanField(default=False)
