@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.http import HttpResponse
-from .models import Person, Project
+from .models import Person, Project, Post
 
 
 class PersonAdmin(admin.ModelAdmin):
@@ -34,5 +34,9 @@ class PersonAdmin(admin.ModelAdmin):
 class ProjectAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
 
+class PostAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("title",)}
+
 admin.site.register(Person, PersonAdmin)
 admin.site.register(Project, ProjectAdmin)
+admin.site.register(Post, PostAdmin)

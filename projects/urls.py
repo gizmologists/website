@@ -6,4 +6,5 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('archive/', views.archive, name='archive'),
     path('<slug:slug>/', views.show, name='show'),
+    path('<slug:project_slug>/<slug:post_slug>', views.show_post, name='show_post'),
 ]

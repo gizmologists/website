@@ -1,0 +1,22 @@
+<html>
+  <head>
+    {% load static %}
+    {% load sass_tags %}
+    <link rel="stylesheet" href="{% sass_src 'sass/projects/projects.scss' %}">
+  </head>
+  <body>
+    {% include 'components/navbar.html' %}
+    <div class="content">
+      <h1 class="title">{{ project.title }}</h1>
+
+      <div class="post-summary">
+        <h2 class="post-title"> <a href="/projects/{{ project.slug }}/{{ post.slug }}">
+            {{ post.title }}
+          </a></h2>
+        {{ post.content|safe }}
+      </div>
+    </div>
+    {% include 'components/footer.html' %}
+  </body>
+</html>
+

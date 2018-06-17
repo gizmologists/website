@@ -63,3 +63,18 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
+
+class Post(models.Model):
+    created_at = models.DateField(auto_now_add=True)
+    updated_at = models.DateField(auto_now=True)
+    title = models.CharField(max_length=100, unique=True)
+    content = RichTextUploadingField()
+    project = models.ForeignKey(
+            'Project', 
+            on_delete=models.CASCADE, 
+            related_name="posts"
+    )
+    slug = models.SlugField(max_length=100, unique=True)
+
+    def __str__(self):
+        return self.title + ': ' + self.project.title
