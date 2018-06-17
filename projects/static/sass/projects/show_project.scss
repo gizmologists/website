@@ -1,0 +1,19 @@
+@import "sass/application";
+$rad: 0.3cm;
+
+.project {
+  padding: 30px;
+  border: 5px solid $jefferson-blue;
+  border-radius: $rad;
+}
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  justify-content: left;
+
+  .page-link {
+    margin-right: 10px;
+  }
+}

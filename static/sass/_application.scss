@@ -22,9 +22,10 @@ body {
 .content {
   grid-area: content;
   margin: 25px 0px;
-  #title {
-    border-bottom: 2px solid #d0d0d0;
+  .title {
+    border-bottom: 2px solid $light-gray;
     margin: 0;
     padding: 0;
+    height: auto;
   }
 }

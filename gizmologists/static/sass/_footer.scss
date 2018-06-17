@@ -1,10 +1,10 @@
-$navbar-width: 1450px;
+@import "sass/colors";
 
-footer {
+.footer {
   grid-area: footer;
   width: 100%;
   height: auto;
-  border-top: 1px dotted black;
+  border-top: 1px dotted $medium-gray;
 }
 
 #footer-links {
@@ -15,5 +15,4 @@ footer {
   flex: 0 0 100%;
   flex-wrap: wrap;
   list-style: none;
-  max-width: $navbar-width;
 }

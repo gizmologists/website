@@ -7,14 +7,15 @@
   <body>
     {% include 'components/navbar.html' %}
     <div class="content">
-      {% if message %}
-        <div class="message">
-          {{ message }}
-        </div>
-      {% endif %}
       <h1 class="title"> Contact </h1>
 
       <div class="content-wrapper">
+        {% if message %}
+          <div class="message">
+            {{ message }}
+            <p> anteshunteoau </p>
+          </div>
+        {% endif %}
         <p> If you would like to sign up for our email list, do so here.</p>
 
         <p> Also, you can always email us at gizmologists@gmail.com </p>

@@ -1,26 +1,6 @@
 @import "sass/application";
 
-.content {
-  display: grid;
-  grid-template-areas:
-  'title'
-  'message'
-  'wrapper';
-  grid-gap: 0;
-}
-
-.title {
-  grid-area: title;
-  margin: 0px;
-  padding: 0px;
-}
-
-.content-wrapper {
-  grid-area: wrapper;
-}
-
 
 .message {
   background: red;
-  grid-area: message;
 }

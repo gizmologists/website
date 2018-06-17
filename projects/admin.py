@@ -26,9 +26,13 @@ class PersonAdmin(admin.ModelAdmin):
 
     mark_as_added_to_email.short_description = "Mark selected people as added to email list"
     get_need_to_be_added.short_description = "Get list of people who need to be added"
-    get_need_to_be_removed.short_description = "Get list of people who need to be removed"
+    # Currently don't support removing - do through email
+    #get_need_to_be_removed.short_description = "Get list of people who need to be removed"
 
-    actions = [mark_as_added_to_email, get_need_to_be_added, get_need_to_be_removed]
+    actions = [mark_as_added_to_email, get_need_to_be_added]
+
+    search_fields = ('first_name', 'last_name', 'id')
+
     list_filter = ('need_added_to_email', 'need_removed_from_email')
 
 class ProjectAdmin(admin.ModelAdmin):

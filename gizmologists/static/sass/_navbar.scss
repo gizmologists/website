@@ -1,5 +1,4 @@
-$navbar-width: 1450px;
-$navbar-height: 50px;
+@import "sass/colors";
 $rad: 0.3cm;
 
 // navbar
@@ -7,9 +6,9 @@ nav {
   grid-area: nav;
   border-bottom-left-radius: $rad;
   border-bottom-right-radius: $rad;
-  background:#232D4B;
+  background: $jefferson-blue;
   width: 100%;
-  height: $navbar-height;
+  height: auto;
   top: 0;
 }
 
@@ -21,7 +20,6 @@ nav {
   flex: 0 0 100%;
   flex-wrap: wrap;
   list-style: none;
-  max-width: $navbar-width;
 }
 
 .underlineable {
@@ -33,9 +31,11 @@ nav {
   a {
       padding: 0;
       margin: 0;
-      color: #e0e0e0;
+      &:link, &:visited {
+        color: $light-gray;
+      }
       &:hover {
-          color: #c0c0c0;
+          color: $medium-gray;
       }
 
     display: inline-block;
@@ -53,12 +53,7 @@ nav {
 
     &:hover:after {
       width: 100%;
-      background: #E57200;
+      background: $rotunda-orange;
     }
   }
-}
-
-#logo {
-  width: 75px;
-  margin-right: 50px;
 }

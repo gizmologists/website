@@ -12,7 +12,7 @@ def archive(request):
     projects = Project.objects.filter(end_date__isnull=False)
     return render(request, 'projects/archive.html', {'projects': projects})
 
-def show(request, slug):
+def show_project(request, slug):
     project = Project.objects.get(slug=slug)
 
     post_list = project.posts.all()
@@ -21,7 +21,7 @@ def show(request, slug):
     page = request.GET.get('page')
     posts = paginator.get_page(page)
 
-    return render(request, 'projects/show.html', {
+    return render(request, 'projects/show_project.html', {
         'project': project,
         'posts':   posts
     })

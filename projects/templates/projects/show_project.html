@@ -1,0 +1,42 @@
+<html>
+  <head>
+    {% load static %}
+    {% load sass_tags %}
+    <link rel="stylesheet" href="{% sass_src 'sass/projects/show_project.scss' %}">
+  </head>
+  <body>
+    {% include 'components/navbar.html' %}
+    <div class="content">
+      <div class="project">
+        <h1 class="title">{{ project.title }}</h1>
+        <p> {{ project.summary|safe }}</p>
+      </div>
+
+      {% if posts %}
+        {% for post in posts %}
+        <div class="post-summary">
+          <h2 class="post-title"> <a href="{{ post.slug }}">
+              {{ post.title }}
+            </a></h2>
+          {{ post.content|safe }}
+        </div>
+        {% endfor %}
+        <span class="page-links">
+          <ul class="pagination">
+            {% for page in posts.paginator.page_range %}
+              <li class="page-link">
+                {% if page == posts.number %} 
+                  {{ page }}
+                {% else %}
+                  <a href="?page={{ page }}">{{ page }}</a>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </span>
+      {% endif %}
+    </div>
+    {% include 'components/footer.html' %}
+  </body>
+</html>
+
