@@ -50,13 +50,18 @@ class Person(models.Model):
 class Project(models.Model):
     start_date = models.DateField()
     end_date = models.DateField(null=True, blank=True)
+
     title = models.CharField(max_length=50, unique=True)
+    # What is shown on list of projects
     summary = RichTextUploadingField()
+    # What is shown on the project page
+    body = RichTextUploadingField()
+
     slug = models.SlugField(max_length=50, unique=True)
     # A project has-a leader and a leader can lead many projects
     # Essentially just a way to identify some "face" to the project
     # This is NOT a hard set thing either - if you want a roster, can simply
-    # use a ManyToMany field and use the roster_set 
+    # use a ManyToMany field and use the roster? but then privacy
     # Can have no leader as well
     leader = models.ForeignKey(Person, on_delete=models.SET_NULL, null=True, blank=True, 
             related_name='project')
