@@ -13,7 +13,6 @@
         {% if message %}
           <div class="message">
             {{ message }}
-            <p> anteshunteoau </p>
           </div>
         {% endif %}
         <p> If you would like to sign up for our email list, do so here.</p>
@@ -23,15 +22,32 @@
         {% if signup_form %}
           <h2> Signup </h2>
           <form action="/contact/" method="post">
-            <table>
-              {% csrf_token %}
-              {% for field in signup_form %}
-              <tr>
-                <td>{{ field.label }}:</td><td> {{ field }} </td>
-              </tr>
-              {% endfor %}
-            </table>
-            <input type="submit" value="Join our mailing list!" />
+            {% csrf_token %}
+            <span class="first-name">
+              {{ signup_form.first_name.label }} 
+              {{ signup_form.first_name }} 
+            </span>
+            <span class="last-name">
+              {{ signup_form.last_name.label }} 
+              {{ signup_form.last_name }} 
+            </span>
+            <span class="comp-id">
+              {{ signup_form.comp_id.label }}    
+              {{ signup_form.comp_id }}    
+            </span>
+            <span class="major">
+              {{ signup_form.major.label }} 
+              {{ signup_form.major }} 
+            </span>
+            <span class="degree-program">
+              {{ signup_form.degree_program.label }}
+              {{ signup_form.degree_program }} 
+            </span>
+            <span class="graduation-year">
+              {{ signup_form.graduation_year.label }}
+              {{ signup_form.graduation_year }} 
+            </span>
+            <input class="submit" type="submit" value="Join our mailing list!" />
           </form>
         {% endif %}
 

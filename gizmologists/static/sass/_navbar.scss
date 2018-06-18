@@ -1,11 +1,11 @@
 @import "sass/colors";
-$rad: 0.3cm;
+@import "sass/vars";
 
 // navbar
 nav {
   grid-area: nav;
-  border-bottom-left-radius: $rad;
-  border-bottom-right-radius: $rad;
+  border-bottom-left-radius: $div-radius;
+  border-bottom-right-radius: $div-radius;
   background: $jefferson-blue;
   width: 100%;
   height: auto;

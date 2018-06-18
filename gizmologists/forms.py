@@ -8,23 +8,32 @@ def year_choices():
 
 class SignupForm(forms.Form):
     first_name = forms.CharField(label="First name", max_length=50, 
-            widget=forms.TextInput(attrs={'placeholder': 'First Name'}))
+            widget=forms.TextInput(attrs={
+                'placeholder': 'John',
+            }))
 
     last_name = forms.CharField(label="Last name", max_length=50, 
-            widget=forms.TextInput(attrs={'placeholder': 'Last Name'}))
+            widget=forms.TextInput(attrs={
+                'placeholder': 'Doe',
+            }))
 
     comp_id = forms.CharField(label="UVA computing ID", max_length=7, 
-            widget=forms.TextInput(attrs={'placeholder': 'Computing ID'}))
+            widget=forms.TextInput(attrs={
+                'placeholder': 'jd5xd',
+            }))
 
     major = forms.CharField(label="Major", max_length=50, 
-            widget=forms.TextInput(attrs={'placeholder': 'Undecided'}))
+            widget=forms.TextInput(attrs={
+                'placeholder': 'Undecided',
+            }))
 
     degree_program = forms.ChoiceField(label="Degree program", 
-            choices=Person.DEGREES, initial="BS")
+            choices=Person.DEGREES, initial='Degree program')
 
     graduation_year  = forms.TypedChoiceField(label="Expected graduation year", coerce=int,
-            choices=year_choices, initial=datetime.date.today().year)
+            choices=year_choices, initial=datetime.date.today().year+4)
 
+# Currently unused but kept just in case
 class SigndownForm(forms.Form):
     comp_id = forms.CharField(label="UVA Computing ID", max_length=7, 
             widget=forms.TextInput(attrs={'placeholder': 'Computing ID'}))
