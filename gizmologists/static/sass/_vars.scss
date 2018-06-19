@@ -1,3 +1,27 @@
 $input-radius: 6px;
 $div-radius: 10px;
 $div-padding: 15px;
+
+$small-screen: 767px;
+$medium-screen: 992px;
+$large-screen: 1200px;
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == "small" {
+    @media (min-width: $small-screen) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint == "medium" {
+    @media (min-width: $medium-screen) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint == "large" {
+    @media (min-width: $large-screen) {
+      @content;
+    }
+  }
+}

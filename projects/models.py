@@ -69,6 +69,9 @@ class Project(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        ordering = ['end_date', 'start_date']
+
 class Post(models.Model):
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
@@ -83,3 +86,6 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title + ': ' + self.project.title
+
+    class Meta:
+        ordering = ['-created_at']

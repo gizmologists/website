@@ -33,16 +33,22 @@ body {
 .content {
   grid-area: content;
   margin: 25px 0px;
-  .title {
-    border-bottom: 2px solid $light-gray;
-    margin: 0;
-    margin-bottom: 10px;
-    padding: 0;
-    color: $secondary-orange;
-  }
 }
 
 // Make other headers blue
 h2, h3, h4, h5 {
   color: $jefferson-blue;
+}
+
+// Put title specs in h1 so title can overwrite
+h1 {
+  border-bottom: 2px solid $light-gray;
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 0;
+  color: $secondary-orange;
+}
+
+div {
+  padding: $div-padding;
 }

@@ -8,8 +8,14 @@
     {% include 'components/navbar.html' %}
     <div class="content">
       <div class="project">
-        <h1 class="title">{{ project.title }}</h1>
-        <p> {{ project.summary|safe }}</p>
+        <span class="meta">
+          <h1 class="title">{{ project.title }}</h1>
+          <p class="start">Start date: {{ project.start_date }}</p>
+          {% if project.end_date %}
+            <p class="end">Completion date: {{ project.end_date }}</p>
+          {% endif %}
+        </span>
+        <span class="project-body"> {{ project.body|safe }}</span>
       </div>
 
       {% if posts %}
@@ -18,7 +24,7 @@
           <h2 class="post-title"> <a href="{{ post.slug }}">
               {{ post.title }}
             </a></h2>
-          {{ post.content|safe }}
+          {{ post.content|safe|truncatewords:20 }}
         </div>
         {% endfor %}
         <span class="page-links">

@@ -4,17 +4,21 @@ $space-between: 1.5em;
 
 form {
   max-height: $max-form-height;
-  display: grid;
-  grid-template-areas:
-  'first-name-label last-name-label '
-  'first-name      last-name'
-  'comp-id-label major-label'
-  'comp-id         major'
-  'degree-program-label graduation-year-label'
-  'degree-program  graduation-year'
-  'submit .';
-  grid-template-rows: 1fr 2fr 1fr 2fr 1fr 2fr 1fr;
-  grid-gap: $space-between/2;
+  max-width: $small-screen;
+  display: flex;
+  flex-direction: column;
+  @include respond-to(small) {
+    display: grid;
+    grid-template-areas:
+    'first-name-label last-name-label '
+    'first-name      last-name'
+    'comp-id-label major-label'
+    'comp-id         major'
+    'degree-program-label graduation-year-label'
+    'degree-program  graduation-year'
+    'submit .';
+    grid-gap: $space-between/2;
+  }
 }
 
 .first-name {

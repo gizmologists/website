@@ -1,10 +1,34 @@
 @import "sass/application";
-$rad: 0.3cm;
 
 .project {
-  padding: 30px;
   border: 5px solid $jefferson-blue;
-  border-radius: $rad;
+  border-radius: $div-radius;
+  display: flex;
+  flex-direction: column;
+  @include respond-to(medium) {
+    display: grid;
+    grid-template-areas:
+    'meta project-body';
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+.meta {
+  grid-area: meta;
+  height: 100%;
+  border-bottom: 1px dotted $jefferson-blue;
+  @include respond-to(medium) {
+    border: none;
+    border-right: 1px dotted $jefferson-blue;
+  }
+  .title {
+    border-bottom: none;
+  }
+}
+
+.project-body {
+  grid-area: project-body;
+  padding: $div-padding;
 }
 
 .pagination {
