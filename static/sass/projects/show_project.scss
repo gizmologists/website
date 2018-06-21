@@ -1,8 +1,8 @@
 @import "sass/application";
 
 .project {
-  border: 2px solid $jefferson-blue;
-  box-shadow: 2px 4px $secondary-blue;
+  border: 3px solid $jefferson-blue;
+  box-shadow: 3px 7px $secondary-blue;
   border-radius: $div-radius;
   display: flex;
   flex-direction: column;
@@ -35,8 +35,8 @@
 .post {
   border: 2px dotted $light-gray;
   border-radius: $div-radius;
-  box-shadow: 3px 7px $medium-gray;
-  margin-bottom: $div-padding;
+  box-shadow: 3px 7px;
+  margin: $div-padding;
 }
 
 .pagination {

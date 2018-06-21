@@ -1,0 +1,16 @@
+@import "sass/vars";
+@import "sass/colors";
+.project {
+  border: 3px solid $jefferson-blue;
+  box-shadow: 3px 7px $secondary-blue;
+  border-radius: $div-radius;
+  display: flex;
+  flex-direction: column;
+  @include respond-to(medium) {
+    display: grid;
+    grid-template-areas:
+    'meta project-summary';
+    grid-template-columns: 1fr 2fr;
+  }
+}
+

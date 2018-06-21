@@ -1,10 +1,13 @@
 @import "sass/navbar";
 @import "sass/footer";
+@import "sass/colors";
+@import "sass/vars";
 
 body, html {
   margin:0;
   padding:0;
   border:none;
+  color: $text-gray;
 }
 
 body {
@@ -16,16 +19,36 @@ body {
   grid-gap: 10px;
   grid-template-columns: 1fr 10fr 1fr;
   grid-template-rows: auto 1fr auto;
-  height: 100%
+  height: 99%;
+  a {
+    &:link {
+      color: $jefferson-blue;
+    }
+    &:visited {
+      color: $jefferson-blue;
+    }
+  }
 }
 
 .content {
   grid-area: content;
   margin: 25px 0px;
-  .title {
-    border-bottom: 2px solid $light-gray;
-    margin: 0;
-    padding: 0;
-    height: auto;
-  }
+}
+
+// Make other headers blue
+h2, h3, h4, h5 {
+  color: $jefferson-blue;
+}
+
+// Put title specs in h1 so title can overwrite
+h1 {
+  border-bottom: 2px solid $light-gray;
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 0;
+  color: $secondary-orange;
+}
+
+div {
+  padding: $div-padding;
 }

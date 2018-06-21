@@ -11,12 +11,12 @@
 
 .title {
   grid-area: title;
-  background: green;
+  border-bottom: none!important;
+  font-size: 1.5em;
 }
 
 #slideshow {
   grid-area: slideshow;
-  background: red;
   img {
     width: 50%;
   }
@@ -24,10 +24,11 @@
 
 #gears {
   grid-area: gears;
-  background: yellow;
 }
 
 #description {
   grid-area: description;
-  background: purple;
+  border: 1px dotted $jefferson-blue;
+  padding: $div-padding;
+  border-radius: $div-radius;
 }

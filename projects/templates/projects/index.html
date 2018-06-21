@@ -7,15 +7,38 @@
   <body>
     {% include 'components/navbar.html' %}
     <div class="content">
-      <h1 class="title">Projects</h1>
+      <h1 class="title">{{ title }}</h1>
+      <p class="description">{{ description }} </p>
       <ul class="projects-list">
       {% for project in projects %}
         <li> 
-          <h2><a href="/projects/{{ project.slug }}/">{{ project }}</a></h2>
-          <p> {{ project.summary|safe }}</p>
+          <div class="project">
+            <span class="meta">
+              <h2><a href="/projects/{{ project.slug }}/">{{ project }}</a></h2>
+              <h3>{{ project.start_date }}</h3>
+            </span>
+            <span class="project-summary"> {{ project.summary|safe }}</span>
+          </div>
         </li>
       {% endfor %}
       </ul>
+      {% if projects.has_other_pages %}
+        <div class="pagination">
+          {% if projects.has_previous %}
+            <a href="?page={{ projects.previous_page_number }}">&laquo;</a>
+          {% endif %}
+          {% for page in projects.paginator.page_range %}
+            {% if page == projects.number %} 
+              <a href="?page={{ page }}" class="active">{{ page }}</a>
+            {% else %}
+              <a href="?page={{ page }}">{{ page }}</a>
+            {% endif %}
+          {% endfor %}
+          {% if projects.has_next %}
+            <a href="?page={{ projects.next_page_number }}">&raquo;</a>
+          {% endif %}
+        </div>
+      {% endif %}
     </div>
     {% include 'components/footer.html' %}
   </body>
