@@ -1,48 +1,44 @@
-<html>
-  <head>
-    {% load static %}
-    {% load sass_tags %}
-    <link rel="stylesheet" href="{% sass_src 'sass/projects/show_project.scss' %}">
-  </head>
-  <body>
-    {% include 'components/navbar.html' %}
-    <div class="content">
-      <div class="project">
-        <span class="meta">
-          <h1 class="title">{{ project.title }}</h1>
-          <p class="start">Start date: {{ project.start_date }}</p>
-          {% if project.end_date %}
-            <p class="end">Completion date: {{ project.end_date }}</p>
-          {% endif %}
-        </span>
-        <span class="project-body"> {{ project.body|safe }}</span>
-      </div>
+{% extends 'base.html' %}
 
-      {% if posts %}
-        {% for post in posts %}
-        <div class="post">
-          <h2 class="post-title"> <a href="{{ post.slug }}">
-              {{ post.title }}
-            </a></h2>
-          {{ post.content|safe|truncatewords:20 }}
-        </div>
-        {% endfor %}
-        <span class="page-links">
-          <ul class="pagination">
-            {% for page in posts.paginator.page_range %}
-              <li class="page-link">
-                {% if page == posts.number %} 
-                  {{ page }}
-                {% else %}
-                  <a href="?page={{ page }}">{{ page }}</a>
-                {% endif %}
-              </li>
-            {% endfor %}
-          </ul>
-        </span>
+{% block head %}
+  {% load static %}
+  {% load sass_tags %}
+  <link rel="stylesheet" href="{% sass_src 'sass/projects/show_project.scss' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="project">
+    <span class="meta">
+      <h1 class="title">{{ project.title }}</h1>
+      <p class="start">Start date: {{ project.start_date }}</p>
+      {% if project.end_date %}
+        <p class="end">Completion date: {{ project.end_date }}</p>
       {% endif %}
-    </div>
-    {% include 'components/footer.html' %}
-  </body>
-</html>
+    </span>
+    <span class="project-body"> {{ project.body|safe }}</span>
+  </div>
 
+  {% if posts %}
+    {% for post in posts %}
+    <div class="post">
+      <h2 class="post-title"> <a href="{{ post.slug }}">
+          {{ post.title }}
+        </a></h2>
+      {{ post.content|safe|truncatewords:20 }}
+    </div>
+    {% endfor %}
+    <span class="page-links">
+      <ul class="pagination">
+        {% for page in posts.paginator.page_range %}
+          <li class="page-link">
+            {% if page == posts.number %} 
+              {{ page }}
+            {% else %}
+              <a href="?page={{ page }}">{{ page }}</a>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </span>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,15 @@
+<html>
+  <head>
+    {% block head %}
+    {% endblock %}
+  </head>
+  <body>
+    {% include 'components/navbar.html' %}
+    <div class="content">
+      {% block content %}
+      {% endblock %}
+    </div>
+    {% include 'components/footer.html' %}
+  </body>
+</html>
+

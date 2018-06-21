@@ -1,74 +1,71 @@
-<html>
-  <head>
-    {% load static %}
-    {% load sass_tags %}
-    <link rel="stylesheet" href="{% sass_src 'sass/contact.scss' %}">
-  </head>
-  <body>
-    {% include 'components/navbar.html' %}
-    <div class="content">
-      <h1 class="title"> Contact </h1>
+{% extends 'base.html' %}
 
-      <div class="content-wrapper">
-        {% if message %}
-          <div class="message">
-            {{ message }}
-          </div>
-        {% endif %}
-        <p> If you would like to sign up for our email list, do so here.</p>
+{% block head %}
+  {% load static %}
+  {% load sass_tags %}
+  <link rel="stylesheet" href="{% sass_src 'sass/contact.scss' %}">
+{% endblock %}
 
-        <p> Also, you can always email us at gizmologists@gmail.com </p>
+{% block content %}
+  <h1 class="title"> Contact </h1>
 
-        {% if signup_form %}
-          <h2> Signup </h2>
-          <form action="/contact/" method="post">
-            {% csrf_token %}
-            <span class="first-name">
-              {{ signup_form.first_name.label }} 
-              {{ signup_form.first_name }} 
-            </span>
-            <span class="last-name">
-              {{ signup_form.last_name.label }} 
-              {{ signup_form.last_name }} 
-            </span>
-            <span class="comp-id">
-              {{ signup_form.comp_id.label }}    
-              {{ signup_form.comp_id }}    
-            </span>
-            <span class="major">
-              {{ signup_form.major.label }} 
-              {{ signup_form.major }} 
-            </span>
-            <span class="degree-program">
-              {{ signup_form.degree_program.label }}
-              {{ signup_form.degree_program }} 
-            </span>
-            <span class="graduation-year">
-              {{ signup_form.graduation_year.label }}
-              {{ signup_form.graduation_year }} 
-            </span>
-            <input class="submit" type="submit" value="Join our mailing list!" />
-          </form>
-        {% endif %}
-
-        {% if signdown_form %}
-          <h2> Leave our email list </h2>
-          <p> Note that, if you leave the mailing list, we completely remove you from the database, so you will have to readd yourself to get back on.</p>
-          <form action="/contact/" method="post">
-            <table>
-              {% csrf_token %}
-              {% for field in signdown_form %}
-              <tr>
-                <td>{{ field.label }}:</td><td> {{ field }} </td>
-              </tr>
-              {% endfor %}
-            </table>
-            <input type="submit" value="Leave our mailing list" />
-          </form>
-        {% endif %}
+  <div class="content-wrapper">
+    {% if message %}
+      <div class="message">
+        {{ message }}
       </div>
+    {% endif %}
+    <p> If you would like to sign up for our email list, do so here.</p>
 
-    </div>
-    {% include 'components/footer.html' %}
-  </body>
-</html>
+    <p> Also, you can always email us at gizmologists@gmail.com </p>
+
+    {% if signup_form %}
+      <h2> Signup </h2>
+      <form action="/contact/" method="post">
+        {% csrf_token %}
+        <span class="first-name">
+          {{ signup_form.first_name.label }} 
+          {{ signup_form.first_name }} 
+        </span>
+        <span class="last-name">
+          {{ signup_form.last_name.label }} 
+          {{ signup_form.last_name }} 
+        </span>
+        <span class="comp-id">
+          {{ signup_form.comp_id.label }}    
+          {{ signup_form.comp_id }}    
+        </span>
+        <span class="major">
+          {{ signup_form.major.label }} 
+          {{ signup_form.major }} 
+        </span>
+        <span class="degree-program">
+          {{ signup_form.degree_program.label }}
+          {{ signup_form.degree_program }} 
+        </span>
+        <span class="graduation-year">
+          {{ signup_form.graduation_year.label }}
+          {{ signup_form.graduation_year }} 
+        </span>
+        <input class="submit" type="submit" value="Join our mailing list!" />
+      </form>
+    {% endif %}
+
+    {% if signdown_form %}
+      <h2> Leave our email list </h2>
+      <p> Note that, if you leave the mailing list, we completely remove you from the database, so you will have to readd yourself to get back on.</p>
+      <form action="/contact/" method="post">
+        <table>
+          {% csrf_token %}
+          {% for field in signdown_form %}
+          <tr>
+            <td>{{ field.label }}:</td><td> {{ field }} </td>
+          </tr>
+          {% endfor %}
+        </table>
+        <input type="submit" value="Leave our mailing list" />
+      </form>
+    {% endif %}
+  </div>
+{% endblock %}
+

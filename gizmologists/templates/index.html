@@ -1,19 +1,16 @@
-<html>
-  <head>
-    {% load static %}
-    {% load sass_tags %}
-    <link rel="stylesheet" href="{% sass_src 'sass/home.scss' %}">
-  </head>
-  <body>
-    {% include 'components/navbar.html' %}
-    <div class="content">
-      <div class="title"> <h1> Gizmologists </h1></div>
-      <div id="slideshow"> 
-        <img src="{% static 'img/logo.png' %}" />
-      </div>
-      <div id="gears"> GEARS</div>
-      <div id="description"> <p> Gizmologists is a great club that everyone should join.  It is wonderful in literally every way.  Help me.</div>
-    </div>
-    {% include 'components/footer.html' %}
-  </body>
-</html>
+{% extends 'base.html' %}
+{% block head %}
+  {% load static %}
+  {% load sass_tags %}
+  <link rel="stylesheet" href="{% sass_src 'sass/home.scss' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="title"> <h1> Gizmologists </h1></div>
+  <div id="slideshow"> 
+    <img src="{% static 'img/logo.png' %}" />
+  </div>
+  <div id="gears"> GEARS</div>
+  <div id="description"> <p> Gizmologists is a great club that everyone should join.  It is wonderful in literally every way.  Help me.</div>
+  </div>
+{% endblock %}
