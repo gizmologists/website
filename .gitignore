@@ -61,3 +61,4 @@ docs/_build/
 
 # css files because sass is used
 *.css
+*.map
