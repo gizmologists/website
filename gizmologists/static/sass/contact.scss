@@ -1,6 +1,6 @@
 @import "sass/application";
 $max-form-height: 150px;
-$space-between: 1.5em;
+$space-between: .75em;
 
 form {
   max-height: $max-form-height;
@@ -17,7 +17,8 @@ form {
     'degree-program-label graduation-year-label'
     'degree-program  graduation-year'
     'submit .';
-    grid-gap: $space-between/2;
+    grid-gap: $space-between;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
