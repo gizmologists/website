@@ -1,14 +1,11 @@
 @import "sass/application";
+@import "./pagination";
 
 .meta {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
-  .start_date {
-    float: right;
-    position: absolute;
-  }
 }
 
 .projects-list {
@@ -21,39 +18,6 @@
     display: flex;
     flex-direction: column;
     margin-bottom: $div-padding;
-  }
-}
-
-.pagination {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  justify-content: left;
-
-  a {
-    transition: background-color .2s;
-    border: 1px solid $medium-gray;
-    text-decoration: none;
-    padding: 9px;
-
-    &.active {
-      background: $secondary-orange;
-      color: white;
-    }
-
-    &:hover:not(.active) {
-      background-color: $light-gray;
-    }
-
-    &:first-child {
-      border-top-left-radius: $div-radius;
-      border-bottom-left-radius: $div-radius;
-    }
-
-    &:last-child {
-      border-top-right-radius: $div-radius;
-      border-bottom-right-radius: $div-radius;
-    }
   }
 }
 

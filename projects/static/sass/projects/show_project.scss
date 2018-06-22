@@ -1,4 +1,5 @@
 @import "sass/application";
+@import "./pagination";
 
 .project {
   border: 2px solid $jefferson-blue;
@@ -38,15 +39,10 @@
   box-shadow: 3px 7px $medium-gray;
   margin-bottom: $div-padding;
   margin-top: $div-padding;
-}
-
-.pagination {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  justify-content: left;
-
-  .page-link {
-    margin-right: 10px;
+  .post-meta {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
   }
 }

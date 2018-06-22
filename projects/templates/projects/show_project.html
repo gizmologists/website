@@ -21,24 +21,31 @@
   {% if posts %}
     {% for post in posts %}
     <div class="post">
-      <h2 class="post-title"> <a href="{{ post.slug }}">
-          {{ post.title }}
-        </a></h2>
+      <span class="post-meta">
+        <h2 class="post-title"> <a href="{{ post.slug }}">
+            {{ post.title }}
+          </a></h2>
+        <h3>{{ post.created_at }}</h3>
+      </span>
       {{ post.content|safe|truncatewords:20 }}
     </div>
     {% endfor %}
-    <span class="page-links">
-      <ul class="pagination">
+    {% if posts.has_other_pages %}
+      <div class="pagination">
+        {% if posts.has_previous %}
+          <a href="?page={{ posts.previous_page_number }}">&laquo;</a>
+        {% endif %}
         {% for page in posts.paginator.page_range %}
-          <li class="page-link">
-            {% if page == posts.number %} 
-              {{ page }}
-            {% else %}
-              <a href="?page={{ page }}">{{ page }}</a>
-            {% endif %}
-          </li>
+          {% if page == posts.number %} 
+            <a href="?page={{ page }}" class="active">{{ page }}</a>
+          {% else %}
+            <a href="?page={{ page }}">{{ page }}</a>
+          {% endif %}
         {% endfor %}
-      </ul>
-    </span>
+        {% if posts.has_next %}
+          <a href="?page={{ posts.next_page_number }}">&raquo;</a>
+        {% endif %}
+      </div>
+    {% endif %}
   {% endif %}
 {% endblock %}

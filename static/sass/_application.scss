@@ -4,7 +4,9 @@
 @import "sass/vars";
 
 body, html {
-  margin:0;
+  // For some reason, the html is rendered with a style in the body tag
+  // Thus, important is used to overwrite it
+  margin:0!important;
   padding:0;
   border:none;
   color: $text-gray;
@@ -49,6 +51,6 @@ h1 {
   color: $secondary-orange;
 }
 
-div {
+div, .content {
   padding: $div-padding;
 }

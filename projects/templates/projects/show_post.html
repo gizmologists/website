@@ -7,11 +7,12 @@
 {% endblock %}
 
 {% block content %}
-  <h1 class="title">{{ project.title }}</h1>
+  <h1 class="title">{{ post.title }}</h1>
 
   <div class="post-summary">
-    <h2 class="post-title"> <a href="/projects/{{ project.slug }}/{{ post.slug }}">
-        {{ post.title }}
+    <h3 class="post-title"> 
+      Return to project: <a href="/projects/{{ project.slug }}">
+        {{ project.title }}
       </a></h2>
     {{ post.content|safe }}
   </div>

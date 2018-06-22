@@ -1,7 +1,27 @@
 @import "sass/application";
-@import "sass/projects/project_style";
+@import "sass/projects/pagination";
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  .start_date {
+    float: right;
+    position: absolute;
+  }
+}
 
 .projects-list {
   list-style: none;
+
+  .project {
+    border: 3px solid $light-gray;
+    box-shadow: 3px 7px $medium-gray;
+    border-radius: $div-radius;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $div-padding;
+  }
 }
 
