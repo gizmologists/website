@@ -1,37 +1,43 @@
 @import "sass/application";
 
 .content {
-  display: grid;
-  grid-template-areas:
-  'title title gears'
-  'slideshow slideshow gears'
-  'slideshow slideshow description';
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  @include respond-to(small) {
+    display: grid;
+    grid-template-areas:
+    'logo title'
+    'logo subtitle'
+    'logo description'
+    'logo .';
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .title {
   grid-area: title;
-  border-bottom: none!important;
-  font-size: 1.5em;
+  font-size: 3em;
 }
 
-#slideshow {
-  grid-area: slideshow;
-  img {
-    width: 45%;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-  }
+.subtitle {
+  grid-area: subtitle;
+  font-size: 2em;
 }
 
-#gears {
-  grid-area: gears;
-}
-
-#description {
+.description {
   grid-area: description;
-  border: 1px dotted $jefferson-blue;
-  padding: $div-padding;
+}
+
+.intro {
+  border: 2px solid $jefferson-blue;
+  box-shadow: 2px 4px $secondary-blue;
   border-radius: $div-radius;
+  padding: $div-padding;
+}
+
+.logo {
+  grid-area: logo;
+  width: 75%;
+  justify-content: center;
+  margin: 20px auto;
 }

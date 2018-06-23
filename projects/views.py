@@ -35,7 +35,7 @@ def show_project(request, slug):
     project = Project.objects.get(slug=slug)
 
     post_list = project.posts.all()
-    paginator = Paginator(post_list, 2)
+    paginator = Paginator(post_list, 5)
 
     page = request.GET.get('page')
     posts = paginator.get_page(page)
