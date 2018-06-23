@@ -1,9 +1,45 @@
 <nav>
-  <ul id="navlinks">
-    <li class="underlineable"> <a href='/'>Home</a> </li>
-    <li class="underlineable"> <a href='/about'>About Us</a> </li>
-    <li class="underlineable"> <a href='/projects'>Current Projects</a> </li>
-    <li class="underlineable"> <a href='/projects/archive'>Archive</a> </li>
-    <li class="underlineable"> <a href='/contact'>Contact</a> </li>
-  </ul>
+  <div class="nav-mobile">
+    <a id="toggle"><span></span></a>
+  </div>
+  <div id="all-links">
+    <a href='/' id="nav-home" class="underlineable">Home</a>
+    <ul id="navlinks">
+      <li> <a class="underlineable" href='/about'>About Us</a> </li>
+      <li> <a class="underlineable" href='/projects'>Current Projects</a> </li>
+      <li> <a class="underlineable" href='/projects/archive'>Archive</a> </li>
+      <li> <a class="underlineable" href='/contact'>Contact</a> </li>
+    </ul>
+  </div>
 </nav>
+
+<script>
+  (function() {
+    $(function() {
+      const SMALL = 767;
+      // First, if we resize, make sure we're showing navlinks properly
+      $(window).on('resize', function() {
+        // If we're over a small screen...
+        if ($(this).width() >= SMALL) {
+          $('#navlinks').show();                  // Show the navlinks
+          $('#navlinks').css('display', 'flex');  // Make sure they're flex
+        }
+        // If we're under a small screen...
+        else {
+          $('#navlinks').hide();                  // We should hide the navlinks
+        }
+      });
+
+      $('#toggle').click(function(e) {
+        // If it's not visible, make it flex display
+        if (!($('#navlinks:visible').length)) $('#navlinks').css('display', 'flex');
+        // Else it is visible, so hide it
+        else $('#navlinks').hide();
+        e.stopPropagation();
+      });
+      $('html').click(function() {
+        $('#navlinks').hide()
+      });
+    });
+  })();
+</script>

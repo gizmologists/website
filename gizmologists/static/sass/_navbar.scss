@@ -1,59 +1,103 @@
 @import "sass/colors";
 @import "sass/vars";
 
+$top-nav-padding: 15px;
+
 // navbar
 nav {
   grid-area: nav;
   border-bottom-left-radius: $div-radius;
   border-bottom-right-radius: $div-radius;
   background: $jefferson-blue;
+  display: flex;
+  flex-direction: row-reverse;
   width: 100%;
   height: auto;
   top: 0;
 }
 
-#navlinks {
-  padding: 15px 50px 10px 50px;
+#toggle {
+  float: right;
+  cursor: pointer;
+  padding: 10px 35px 25px 0px;
+  span,
+  span:before,
+  span:after {
+    cursor: pointer;
+    border-radius: 1px;
+    height: 5px;
+    width: 35px;
+    background: $rotunda-orange;
+    position: absolute;
+    display: block;
+    content: '';
+    transition: all 300ms ease-in-out;
+  }
+  span:before {
+    top: -10px;
+  }
+  span:after {
+    bottom: -10px;
+  }
+}
+
+@include respond-to(small) {
+  .nav-mobile {
+    display: none;
+  }
+}
+
+#all-links {
+  padding: $top-nav-padding 50px 10px 0;
   margin: auto;
-  display: flex;
-  justify-content: left;
+  width: 100%;
+  @include respond-to(small) {
+    display: flex;
+    justify-content: left;
+  }
+}
+
+#navlinks {
+  padding: 0;
+  margin: 0;
+  display: none;
+  flex-direction: column;
   flex: 0 0 100%;
   flex-wrap: wrap;
   list-style: none;
+  justify-content: left;
+  // We include this, but it doesn't work with the jquery considering
+  // it forces a block display -> this is just used for the initial setting
+  @include respond-to(small) {
+    display: flex;
+    flex-direction: row;
+  }
 }
 
 .underlineable {
-  margin-right: 30px;  
-  padding: 0px 15px;
-  //background-color: #E57200;
-  //border-radius: 1cm;
-  // Make URL that slides left to right on hover
-  a {
-      padding: 0;
-      margin: 0;
-      &:link, &:visited {
-        color: $light-gray;
-      }
-      &:hover {
-          color: $medium-gray;
-      }
+  margin: 10px 20px;
+  &:link, &:visited {
+    color: $light-gray;
+  }
+  &:hover {
+      color: $medium-gray;
+  }
 
-    display: inline-block;
+  display: inline-block;
 
 
-    text-decoration: none;
-    &:after {
-      content: '';
-      display: block;
-      height: 2px;
-      width: 0;
-      background: transparent;
-      transition: width .5s ease, background-color .5s ease;
-    }
+  text-decoration: none;
+  &:after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 0;
+    background: transparent;
+    transition: width .5s ease, background-color .5s ease;
+  }
 
-    &:hover:after {
-      width: 100%;
-      background: $rotunda-orange;
-    }
+  &:hover:after {
+    width: 100%;
+    background: $rotunda-orange;
   }
 }
