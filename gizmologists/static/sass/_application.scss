@@ -10,6 +10,7 @@ body, html {
   padding:0;
   border:none;
   color: $text-gray;
+  height: 100%;
 }
 
 body {
@@ -21,7 +22,7 @@ body {
   grid-gap: 10px;
   grid-template-columns: 1fr 10fr 1fr;
   grid-template-rows: auto 1fr auto;
-  height: 99%;
+  height: 100%;
   a {
     &:link {
       color: $jefferson-blue;
