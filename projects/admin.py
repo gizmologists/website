@@ -1,9 +1,9 @@
 from django.contrib import admin
 from django.http import HttpResponse
-from .models import Person, Project, Post
+from .models import User, Project, Post
 
 
-class PersonAdmin(admin.ModelAdmin):
+class UserAdmin(admin.ModelAdmin):
 
     def mark_as_added_to_email(self, request, queryset):
         rows_updated = queryset.update(need_added_to_email=False)
@@ -15,14 +15,14 @@ class PersonAdmin(admin.ModelAdmin):
         self.message_user(request, "%s successfully marked added to email list." % message_bit)
 
     def get_need_to_be_added(self, request, queryset):
-        people = Person.objects.filter(need_added_to_email=True)
-        people_string = '\n'.join(person.id for person in people)
-        return HttpResponse(people_string, content_type='text/plain')
+        users = User.objects.filter(need_added_to_email=True)
+        users_string = '\n'.join(user.id for user in users)
+        return HttpResponse(users_string, content_type='text/plain')
             
     def get_need_to_be_removed(self, request, queryset):
-        people = Person.objects.filter(need_removed_from_email=True)
-        people_string = '\n'.join(person.id for person in people)
-        return HttpResponse(people_string, content_type='text/plain')
+        users = User.objects.filter(need_removed_from_email=True)
+        users_string = '\n'.join(user.id for user in users)
+        return HttpResponse(user_string, content_type='text/plain')
 
     mark_as_added_to_email.short_description = "Mark selected people as added to email list"
     get_need_to_be_added.short_description = "Get list of people who need to be added"
@@ -41,6 +41,6 @@ class ProjectAdmin(admin.ModelAdmin):
 class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
 
-admin.site.register(Person, PersonAdmin)
+admin.site.register(User, UserAdmin)
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(Post, PostAdmin)

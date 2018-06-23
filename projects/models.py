@@ -1,9 +1,7 @@
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
 
-# Person class in order to just have a list of people associated with a project
-# This makes users unnecessary - simply access the admin site
-class Person(models.Model):
+class User(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     # An id, much like a user id, used as primary key for searches - used because no users needed
@@ -63,7 +61,7 @@ class Project(models.Model):
     # This is NOT a hard set thing either - if you want a roster, can simply
     # use a ManyToMany field and use the roster? but then privacy
     # Can have no leader as well
-    leader = models.ForeignKey(Person, on_delete=models.SET_NULL, null=True, blank=True, 
+    leader = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, 
             related_name='project')
 
     def __str__(self):

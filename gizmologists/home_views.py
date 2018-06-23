@@ -4,7 +4,7 @@ from django.template import loader
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.mail import send_mail
 from .forms import SignupForm, SigndownForm
-from projects.models import Person
+from projects.models import User
 
 def home(request):
     return render(request, "index.html")
@@ -30,13 +30,13 @@ def contact(request):
             email_domain = "@virginia.edu"
             email = comp_id + email_domain
 
-            user_exists_with_comp_id = Person.objects.filter(id=comp_id).exists()
+            user_exists_with_comp_id = User.objects.filter(id=comp_id).exists()
             if user_exists_with_comp_id:
                 message = "There's already a person registered with that computing ID!"
 
             # else no one exists with that - that's all we need!
             else:
-                person = Person(first_name=first_name, 
+                person = User(first_name=first_name, 
                         last_name=last_name,
                         id=comp_id,
                         email=email,
@@ -56,14 +56,14 @@ def contact(request):
         #elif signdown_form.is_valid():
             #comp_id = signdown_form.cleaned_data['comp_id']
             #try:
-                #person_to_delete = Person.objects.get(id=comp_id)
+                #person_to_delete = User.objects.get(id=comp_id)
                 # Need to send a confirmation email - but... tricky without users
                 #person_to_delete.need_removed_from_email = True
-                #message = "Person with computing id " + comp_id + " will be removed shortly!"
+                #message = "User with computing id " + comp_id + " will be removed shortly!"
 
             #except ObjectDoesNotExist:
                 #message = """
-                #Person not in our database.  
+                #User not in our database.  
                 #If you are sure that you are on our mailing list, 
                 #try emailing us and we will remove you.  
                 #We apologize for the inconvenience.

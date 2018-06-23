@@ -1,5 +1,5 @@
 from django import forms
-from projects.models import Person
+from projects.models import User
 import datetime
 
 def year_choices():
@@ -28,7 +28,7 @@ class SignupForm(forms.Form):
             }))
 
     degree_program = forms.ChoiceField(label="Degree program", 
-            choices=Person.DEGREES, initial='Degree program')
+            choices=User.DEGREES, initial='Degree program')
 
     graduation_year  = forms.TypedChoiceField(label="Expected graduation year", coerce=int,
             choices=year_choices, initial=datetime.date.today().year+4)

@@ -26,7 +26,7 @@ def archive(request):
     projects = Project.objects.filter(end_date__isnull=False)
     paginated_projects = paginate_projects(projects, request.GET.get('page'))
     return render(request, 'projects/index.html', {
-        'title': 'Projects',
+        'title': 'Archived Projects',
         'description': description,
         'projects': paginated_projects 
     })
