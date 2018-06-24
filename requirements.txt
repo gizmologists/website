@@ -1,2 +1,12 @@
+dj-database-url==0.5.0
 Django==2.0.1
-django_ckeditor==5.5.0
+django-ckeditor==5.5.0
+django-compressor==2.2
+django-heroku==0.3.1
+django-sass-processor==0.7
+gunicorn==19.8.1
+libsass==0.14.5
+psycopg2==2.7.4
+whitenoise==3.3.1
+libsass==0.14.5
+Pillow==5.1.0

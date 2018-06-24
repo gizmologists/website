@@ -58,7 +58,3 @@ coverage.xml
 
 # Sphinx documentation
 docs/_build/
-
-# css files because sass is used
-*.css
-*.map

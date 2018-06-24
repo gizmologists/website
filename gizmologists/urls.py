@@ -30,3 +30,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = 'app.views.custom_404'
+handler500 = 'app.views.custom_500'

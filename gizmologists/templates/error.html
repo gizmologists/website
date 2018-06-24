@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  {% load static %}
+  {% load sass_tags %}
+  <link rel="stylesheet" href="{% sass_src 'sass/error.scss' %}">
+{% endblock %}
+
+{% block content %}
+  <h1 class="title"> {{ status }} </h1>
+{% endblock %}
+
