@@ -30,7 +30,7 @@ def contact(request):
             email_domain = "@virginia.edu"
             email = comp_id + email_domain
 
-            user_exists_with_comp_id = User.objects.filter(id=comp_id).exists()
+            user_exists_with_comp_id = User.objects.filter(comp_id=comp_id).exists()
             if user_exists_with_comp_id:
                 message = "There's already a person registered with that computing ID!"
 
@@ -38,7 +38,7 @@ def contact(request):
             else:
                 person = User(first_name=first_name, 
                         last_name=last_name,
-                        id=comp_id,
+                        comp_id=comp_id,
                         email=email,
                         major=major,
                         degree_program=degree_program,
@@ -56,7 +56,7 @@ def contact(request):
         #elif signdown_form.is_valid():
             #comp_id = signdown_form.cleaned_data['comp_id']
             #try:
-                #person_to_delete = User.objects.get(id=comp_id)
+                #person_to_delete = User.objects.get(comp_id=comp_id)
                 # Need to send a confirmation email - but... tricky without users
                 #person_to_delete.need_removed_from_email = True
                 #message = "User with computing id " + comp_id + " will be removed shortly!"

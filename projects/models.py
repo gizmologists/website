@@ -6,9 +6,8 @@ class User(models.Model):
     last_name = models.CharField(max_length=50)
     # An id, much like a user id, used as primary key for searches - used because no users needed
     # This is meant to be computing ID most likely
-    id = models.CharField(
+    comp_id = models.CharField(
             max_length=50, 
-            primary_key=True, 
             unique=True
     )
     # email will likely be based off of computing ID - but possible to change 
@@ -87,3 +86,4 @@ class Post(models.Model):
 
     class Meta:
         ordering = ['-created_at']
+
