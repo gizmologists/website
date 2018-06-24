@@ -32,13 +32,15 @@
 
       $('#toggle').click(function(e) {
         // If it's not visible, make it flex display
-        if (!($('#navlinks:visible').length)) $('#navlinks').css('display', 'flex');
+        if (!($('#navlinks:visible').length)) 
+          $('#navlinks').css('display', 'flex');
         // Else it is visible, so hide it
         else $('#navlinks').hide();
         e.stopPropagation();
       });
       $('html').click(function() {
-        $('#navlinks').hide()
+        if ($(this).width() < SMALL)
+          $('#navlinks').hide()
       });
     });
   })();
