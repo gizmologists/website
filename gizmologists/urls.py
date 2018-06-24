@@ -31,5 +31,5 @@ urlpatterns = [
     re_path(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-handler404 = 'app.views.custom_404'
-handler500 = 'app.views.custom_500'
+handler404 = 'gizmologists.home_views.handler404'
+handler500 = 'gizmologists.home_views.handler500'
