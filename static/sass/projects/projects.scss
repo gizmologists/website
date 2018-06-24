@@ -1,15 +1,11 @@
 @import "sass/application";
-@import "sass/projects/pagination";
+@import "./pagination";
 
 .meta {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
-  .start_date {
-    float: right;
-    position: absolute;
-  }
 }
 
 .projects-list {

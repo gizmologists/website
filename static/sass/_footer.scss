@@ -3,18 +3,40 @@
 .footer {
   grid-area: footer;
   width: 100%;
-  height: auto;
   margin: 0;
   padding: 0;
   border-top: 1px dotted $medium-gray;
+  font-size: .8em;
 }
 
 #footer-links {
-  padding: 15px 50px 0px 50px;
+  justify-content: center;
+  padding-left: 0;
+  padding-top: 15px;
   margin: 0;
   display: flex;
-  justify-content: center;
   flex: 0 0 100%;
   flex-wrap: wrap;
   list-style: none;
+
+  @include respond-to(small) {
+    float: right;
+  }
+
+  img {
+    height: 32px;
+  }
+
+  li {
+    margin: 0 10px;
+  }
 }
+
+#footer-meta {
+  text-align: center;
+  @include respond-to(small) {
+    text-align: left;
+    float: left;
+  }
+}
+

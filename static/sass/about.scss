@@ -1,1 +1,30 @@
 @import "sass/application";
+
+$img-fr: 2fr;
+$desc-fr: 3fr;
+
+.exec {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .exec-member {
+    border-radius: $div-radius;
+    border: 2px solid $jefferson-blue;
+    box-shadow: 2px 4px $secondary-blue;
+    margin: 10px 20px;
+    width: 400px;
+  }
+
+  .exec-image {
+    img {
+      width: 100%;
+    }
+    border-bottom: 1px dotted $secondary-orange;
+    padding: $div-padding;
+  }
+}
+
+#exec-title {
+  text-align: center;
+}

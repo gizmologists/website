@@ -10,18 +10,25 @@ body, html {
   padding:0;
   border:none;
   color: $text-gray;
+  height: 100%;
+  font-family: $font-stack;
 }
 
 body {
-  display: grid;
-  grid-template-areas:
-    '. nav .'
-    '. content .'
-    '. footer .';
-  grid-gap: 10px;
-  grid-template-columns: 1fr 10fr 1fr;
-  grid-template-rows: auto 1fr auto;
-  height: 99%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  @include respond-to(small) {
+    display: grid;
+    grid-template-areas:
+      '. nav .'
+      '. content .'
+      '. footer .';
+    grid-gap: 10px;
+    grid-template-columns: 1fr 10fr 1fr;
+    grid-template-rows: auto 1fr auto;
+  }
+
   a {
     &:link {
       color: $jefferson-blue;
@@ -34,7 +41,7 @@ body {
 
 .content {
   grid-area: content;
-  margin: 25px 0px;
+  margin: 15px 0px;
 }
 
 // Make other headers blue
@@ -53,4 +60,13 @@ h1 {
 
 div, .content {
   padding: $div-padding;
+}
+
+.title {
+  font-family: $title-font-stack;
+}
+
+.subtitle {
+  font-family: $subtitle-font-stack;
+  font-style: italic;
 }

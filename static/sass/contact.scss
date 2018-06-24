@@ -1,10 +1,14 @@
 @import "sass/application";
-$max-form-height: 150px;
+$max-form-height: 295px;
 $space-between: .75em;
 
+.content {
+  height: 100%;
+}
+
 form {
-  max-height: $max-form-height;
   max-width: $small-screen;
+  height: 100%;
   display: flex;
   flex-direction: column;
   @include respond-to(small) {
@@ -19,6 +23,7 @@ form {
     'submit .';
     grid-gap: $space-between;
     grid-template-columns: 1fr 1fr;
+    max-height: $max-form-height;
   }
 }
 
@@ -90,4 +95,3 @@ label {
   padding: $div-padding;
   width: auto;
 }
-
