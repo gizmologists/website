@@ -185,7 +185,9 @@ div, .content {
   width: 100%; }
 
 .projects-list {
-  list-style: none; }
+  list-style: none;
+  padding: 0;
+  margin: 0; }
   .projects-list .project {
     border: 3px solid #F1F1EF;
     box-shadow: 3px 7px #DADADA;
