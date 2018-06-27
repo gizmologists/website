@@ -22,31 +22,31 @@
       <h2> Signup </h2>
       <form action="/contact/" method="post">
         {% csrf_token %}
-        <span class="first-name">
+        <span class="field first-name">
           {{ signup_form.first_name.label }} 
           {{ signup_form.first_name }} 
         </span>
-        <span class="last-name">
+        <span class="field last-name">
           {{ signup_form.last_name.label }} 
           {{ signup_form.last_name }} 
         </span>
-        <span class="comp-id">
+        <span class="field comp-id">
           {{ signup_form.comp_id.label }}    
           {{ signup_form.comp_id }}    
         </span>
-        <span class="major">
+        <span class="field major">
           {{ signup_form.major.label }} 
           {{ signup_form.major }} 
         </span>
-        <span class="degree-program">
+        <span class="field degree-program">
           {{ signup_form.degree_program.label }}
           {{ signup_form.degree_program }} 
         </span>
-        <span class="graduation-year">
+        <span class="field graduation-year">
           {{ signup_form.graduation_year.label }}
           {{ signup_form.graduation_year }} 
         </span>
-        <input class="submit" type="submit" value="Join our mailing list!" />
+        <input class="field submit" type="submit" value="Join our mailing list!" />
       </form>
     {% endif %}
 

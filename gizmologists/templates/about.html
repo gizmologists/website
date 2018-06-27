@@ -8,18 +8,20 @@
 
 {% block content %}
   <h1 class="title"> About </h1>
-  <p> 
-  The Gizmologists was created by students who were interested in gaining hands-on experience in an environment without competition.  We seek out students who are interested in designing small scale projects and learning the skills to put them to life.
-  </p>
-  <p> 
-  The club meets at the beginning of the fall semester in order to brainstorm ideas for the coming year.  The ideas with the most interest become projects for that year, led by students with experience.  Students may join different projects depending on their interest, skills, and ages.  Those ideas that do not make it one year may make it the next, as we tend to keep project ideas on record for future use, so definitely don't be discouraged if your ideas don't make it!  Send in your ideas and they may come to fruition.
-  </p>
-  <p>
-  Our projects are mostly small scale mechatronics systems, blending mechanical engineering with electrical and software engineering.  Notable projects include "The Clock", Hoo time, and our escape room.  There are notable exceptions that are software oriented by nature, such as the LED cassette table, more one-off, such as the pumpkin carving light show, and by request, such as the specimen rotation device.  All of these projects ended up being successful in some way, helping students learn more about mechatronics and engage in fun projects along the way.
-  </p>
+  <div id="about">
+    <p> 
+    The Gizmologists was created by students who were interested in gaining hands-on experience in an environment without competition.  We seek out students who are interested in designing small scale projects and learning the skills to put them to life.
+    </p>
+    <p> 
+    The club meets at the beginning of the fall semester in order to brainstorm ideas for the coming year.  The ideas with the most interest become projects for that year, led by students with experience.  Students may join different projects depending on their interest, skills, and ages.  Those ideas that do not make it one year may make it the next, as we tend to keep project ideas on record for future use, so definitely don't be discouraged if your ideas don't make it!  Send in your ideas and they may come to fruition.
+    </p>
+    <p>
+    Our projects are mostly small scale mechatronics systems, blending mechanical engineering with electrical and software engineering.  Notable projects include "The Clock", Hoo time, and our escape room.  There are notable exceptions that are software oriented by nature, such as the LED cassette table, more one-off, such as the pumpkin carving light show, and by request, such as the specimen rotation device.  All of these projects ended up being successful in some way, helping students learn more about mechatronics and engage in fun projects along the way.
+    </p>
+  </div>
   <h2 id="exec-title"> Executive Board </h2>
   <div class="exec">
-    <div class="exec-member">
+    <div class="exec-member" id="president">
       <div class="exec-image">
         <img src="{% static 'img/logo.png' %}"/>
       </div>
@@ -30,7 +32,7 @@
         <h4> Aerospace Engineering major </h4>
       </div>
     </div>
-    <div class="exec-member">
+    <div class="exec-member" id="vice-president">
       <div class="exec-image">
         <img src="{% static 'img/logo.png' %}" />
       </div>
@@ -41,7 +43,7 @@
         <h4> Electrical Engineering major </h4>
       </div>
     </div>
-    <div class="exec-member">
+    <div class="exec-member" id="treasurer">
       <div class="exec-image">
         <img src="{% static 'img/logo.png' %}" />
       </div>
@@ -52,7 +54,7 @@
         <h4> Mechanical Engineering major </h4>
       </div>
     </div>
-    <div class="exec-member">
+    <div class="exec-member" id="webmaster">
       <div class="exec-image">
         <img src="{% static 'img/logo.png' %}" />
       </div>
@@ -63,7 +65,7 @@
         <h4> Computer Science major </h4>
       </div>
     </div>
-    <div class="exec-member">
+    <div class="exec-member" id="secretary">
       <div class="exec-image">
         <img src="{% static 'img/logo.png' %}" />
       </div>
@@ -74,7 +76,7 @@
         <h4> Mechanical Engineering major </h4>
       </div>
     </div>
-    <div class="exec-member">
+    <div class="exec-member" id="social-chair">
       <div class="exec-image">
         <img src="{% static 'img/logo.png' %}" />
       </div>

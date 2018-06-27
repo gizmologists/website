@@ -160,6 +160,14 @@ div, .content {
   display: flex;
   flex-wrap: wrap;
   justify-content: center; }
+  @media (min-width: 992px) {
+    .exec {
+      display: grid;
+      grid-template-areas: 'about about' 'president vice-president' 'treasurer webmaster' 'secretary social-chair'; } }
+  @media (min-width: 1824px) {
+    .exec {
+      display: grid;
+      grid-template-areas: 'about about about' 'president vice-president treasurer' 'webmaster secretary social-chair'; } }
   .exec .exec-member {
     border-radius: 10px;
     border: 2px solid #232D4B;
@@ -174,3 +182,27 @@ div, .content {
 
 #exec-title {
   text-align: center; }
+
+#about {
+  grid-area: about;
+  padding: 0; }
+
+#president {
+  grid-area: president; }
+
+#vice-president {
+  grid-area: vice-president; }
+
+#treasurer {
+  grid-area: treasurer; }
+
+#webmaster {
+  grid-area: webmaster; }
+
+#secretary {
+  grid-area: secretary; }
+
+#social-chair {
+  grid-area: social-chair; }
+
+/*# sourceMappingURL=../../../../../../../../../static/sass/about.css.map */
