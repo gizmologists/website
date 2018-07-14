@@ -9,6 +9,7 @@ $subtitle-font-stack: Serif;
 $small-screen: 767px;
 $medium-screen: 992px;
 $large-screen: 1200px;
+$very-large-screen: 1824px;
 
 @mixin respond-to($breakpoint) {
   @if $breakpoint == "small" {
@@ -25,6 +26,12 @@ $large-screen: 1200px;
 
   @else if $breakpoint == "large" {
     @media (min-width: $large-screen) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint == "very-large" {
+    @media (min-width: $very-large-screen) {
       @content;
     }
   }

@@ -95,3 +95,10 @@ label {
   padding: $div-padding;
   width: auto;
 }
+
+.field {
+  margin-bottom: 20px;
+  @include respond-to(small) {
+    margin: 0;
+  }
+}
