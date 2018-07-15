@@ -129,27 +129,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.0/howto/static-files/
-
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-
-CKEDITOR_BASEPATH = os.path.join(STATIC_URL, "ckeditor/ckeditor/")
-CKEDITOR_UPLOAD_PATH = "uploads/"
-
-SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, "static")
-
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
-
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_QUERYSTRING_AUTH = False
-
 AWS_ACCESS_KEY_ID = os.environ.get('GIZMOLOGISTS_AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('GIZMOLOGISTS_AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = 'gizmologists'
@@ -164,3 +143,20 @@ STATICFILES_STORAGE = 'custom_storages.StaticStorage'
 
 MEDIAFILES_LOCATION = 'media'
 MEDIAFILES_STORAGE = 'custom_storages.MediaStorage'
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
+MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
+
+SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, "static")
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_QUERYSTRING_AUTH = False
+
+CKEDITOR_BASEPATH = os.path.join(STATIC_URL, "ckeditor/ckeditor/")
+CKEDITOR_UPLOAD_PATH = "uploads/"
