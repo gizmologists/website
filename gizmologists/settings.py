@@ -4,7 +4,7 @@ import dj_database_url
 ENVIRONMENT = os.environ.get('ENVIRONMENT', 'DEVELOPMENT')
 
 if ENVIRONMENT == 'PRODUCTION':
-  from settings_production import *
+  from .settings_production import *
 
 elif ENVIRONMENT == 'DEVELOPMENT':
   from .settings_development import *
