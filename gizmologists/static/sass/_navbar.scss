@@ -9,7 +9,13 @@ nav {
   border-bottom-left-radius: $div-radius;
   border-bottom-right-radius: $div-radius;
   background: $jefferson-blue;
-  display: flex;
+  display: grid;
+  grid-template-areas:
+    'navlinks mobile';
+  @include respond-to(small) {
+    grid-template-areas:
+      'navlinks';
+  }
   flex-direction: row-reverse;
   width: 100%;
   height: auto;
@@ -17,6 +23,7 @@ nav {
 }
 
 #toggle {
+  grid-area: mobile;
   float: right;
   cursor: pointer;
   padding: 10px 35px 25px 0px;
@@ -48,6 +55,7 @@ nav {
 }
 
 #all-links {
+  grid-area: navlinks;
   padding: $top-nav-padding 50px 10px 0;
   margin: auto;
   width: 100%;

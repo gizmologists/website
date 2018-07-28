@@ -17,9 +17,9 @@
 
 .meta {
   grid-area: meta;
-  height: 100%;
   border-bottom: 1px dotted $jefferson-blue;
   @include respond-to(medium) {
+    height: 100%;
     border: none;
     border-right: 1px dotted $jefferson-blue;
   }

@@ -1,9 +1,9 @@
 @import "sass/application";
 
 .content {
-  display: flex;
+  display: block;
   flex-wrap: wrap;
-  @include respond-to(small) {
+  @include respond-to(medium) {
     display: grid;
     grid-template-areas:
     'logo title'
