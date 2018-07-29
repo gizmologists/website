@@ -36,8 +36,9 @@
 }
 
 .logo {
+  display: block;
   grid-area: logo;
-  width: 90%;
+  max-width: 90%;
   justify-content: center;
   margin: 20px auto;
 }

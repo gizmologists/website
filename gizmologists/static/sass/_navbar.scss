@@ -9,42 +9,40 @@ nav {
   border-bottom-left-radius: $div-radius;
   border-bottom-right-radius: $div-radius;
   background: $jefferson-blue;
-  display: grid;
-  grid-template-areas:
-    'navlinks mobile';
-  @include respond-to(small) {
-    grid-template-areas:
-      'navlinks';
-  }
+  display: block;
   flex-direction: row-reverse;
   width: 100%;
   height: auto;
   top: 0;
 }
 
-#toggle {
-  grid-area: mobile;
+.nav-mobile {
+  width: 10%;
   float: right;
-  cursor: pointer;
-  padding: 10px 35px 25px 0px;
-  span,
-  span:before,
-  span:after {
+  #toggle {
+    display: inline-block;
+    float: right;
     cursor: pointer;
-    border-radius: 1px;
-    height: 5px;
-    width: 35px;
-    background: $rotunda-orange;
-    position: absolute;
-    display: block;
-    content: '';
-    transition: all 300ms ease-in-out;
-  }
-  span:before {
-    top: -10px;
-  }
-  span:after {
-    bottom: -10px;
+    padding: 10px 35px 25px 0px;
+    span,
+    span:before,
+    span:after {
+      cursor: pointer;
+      border-radius: 1px;
+      height: 5px;
+      width: 35px;
+      background: $rotunda-orange;
+      position: absolute;
+      display: block;
+      content: '';
+      transition: all 300ms ease-in-out;
+    }
+    span:before {
+      top: -10px;
+    }
+    span:after {
+      bottom: -10px;
+    }
   }
 }
 
@@ -56,10 +54,12 @@ nav {
 
 #all-links {
   grid-area: navlinks;
+  float: left;
   padding: $top-nav-padding 50px 10px 0;
   margin: auto;
-  width: 100%;
+  width: 50%;
   @include respond-to(small) {
+    width: 100%;
     display: flex;
     justify-content: left;
   }
