@@ -60,4 +60,4 @@ coverage.xml
 docs/_build/
 
 # We don't want local static files - they're served via s3
-static
+/static
