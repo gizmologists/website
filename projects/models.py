@@ -7,10 +7,10 @@ class User(models.Model):
     # An id, much like a user id, used as primary key for searches - used because no users needed
     # This is meant to be computing ID most likely
     comp_id = models.CharField(
-            max_length=50, 
+            max_length=50,
             unique=True
     )
-    # email will likely be based off of computing ID - but possible to change 
+    # email will likely be based off of computing ID - but possible to change
     email = models.EmailField(max_length=254)
     # Graduation year is just an integer - handling is done in the form
     graduation_year = models.IntegerField(null=True, blank=True)
@@ -22,17 +22,17 @@ class User(models.Model):
             ("PHD", "Doctorate"),
             ("O", "Other")
     )
-    
+
     degree_program = models.CharField(
-            max_length=3, 
-            choices=DEGREES, 
+            max_length=3,
+            choices=DEGREES,
             default="BS",
-            null=True, 
+            null=True,
             blank=True
     )
 
     major = models.CharField(
-            max_length=50, 
+            max_length=50,
             default="Undecided",
             null=True,
             blank=True
@@ -60,14 +60,14 @@ class Project(models.Model):
     # This is NOT a hard set thing either - if you want a roster, can simply
     # use a ManyToMany field and use the roster? but then privacy
     # Can have no leader as well
-    leader = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, 
+    leader = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True,
             related_name='project')
 
     def __str__(self):
         return self.title
 
     class Meta:
-        ordering = ['end_date', 'start_date']
+        ordering = ['start_date', 'end_date']
 
 class Post(models.Model):
     created_at = models.DateField(auto_now_add=True)
@@ -75,8 +75,8 @@ class Post(models.Model):
     title = models.CharField(max_length=100, unique=True)
     content = RichTextUploadingField()
     project = models.ForeignKey(
-            'Project', 
-            on_delete=models.CASCADE, 
+            'Project',
+            on_delete=models.CASCADE,
             related_name="posts"
     )
     slug = models.SlugField(max_length=100, unique=True)
