@@ -15,6 +15,9 @@ nav {
   height: auto;
   top: 0;
   overflow: hidden;
+  @include respond-to(small) {
+    overflow: visible;
+  }
 }
 
 .nav-mobile {
