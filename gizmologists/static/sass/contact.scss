@@ -2,15 +2,9 @@
 $max-form-height: 295px;
 $space-between: .75em;
 
-.content {
-  height: 100%;
-}
-
 form {
   max-width: $small-screen;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+  display: block;
   @include respond-to(small) {
     display: grid;
     grid-template-areas:
@@ -59,12 +53,17 @@ input, select {
   width: 100%;
   height: 3em;
   margin: 0;
+  margin-bottom: 2em;
   padding: 0;
   border-radius: $input-radius;
   border-style: solid;
   border-color: $medium_gray;
   &:focus {
     border-color: $jefferson_blue;
+  }
+
+  @include respond-to(small) {
+    margin: 0;
   }
 }
 
